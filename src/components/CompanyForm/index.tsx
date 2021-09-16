@@ -38,24 +38,6 @@ export function CompanyForm() {
   const [state, setState] = useState('');
 
   useEffect(() => {
-    async function searchZipcode() {
-      if (zipcode === '') return;
-      if (zipcode.length !== 8) return;
-
-      const response = await fetch(
-        `https://brasilapi.com.br/api/cep/v1/${zipcode}`
-      );
-      const address: Address = await response.json();
-
-      setStreet(address.street);
-      setCity(address.city);
-      setState(address.state);
-    }
-
-    searchZipcode();
-  }, [zipcode]);
-
-  useEffect(() => {
     async function searchCompany() {
       if (cnpj === '') return;
       if (cnpj.length !== 14) return;
@@ -78,6 +60,25 @@ export function CompanyForm() {
 
     searchCompany();
   }, [cnpj]);
+
+  useEffect(() => {
+    async function searchZipcode() {
+      if (zipcode === '') return;
+      const formattedZipcode = zipcode.replace('-', '');
+      if (formattedZipcode.length !== 8) return;
+
+      const response = await fetch(
+        `https://brasilapi.com.br/api/cep/v1/${formattedZipcode}`
+      );
+      const address: Address = await response.json();
+
+      setStreet(address.street);
+      setCity(address.city);
+      setState(address.state);
+    }
+
+    searchZipcode();
+  }, [zipcode]);
   return (
     <Container>
       <Form>
@@ -128,6 +129,7 @@ export function CompanyForm() {
           title="CEP"
           placeholder="CEP"
           name="address.zipcode"
+          mask="zipcode"
           value={zipcode}
           onChange={event => setZipcode(event.target.value)}
         />

@@ -28,10 +28,11 @@ export function StudentForm() {
   useEffect(() => {
     async function searchZipcode() {
       if (zipcode === '') return;
-      if (zipcode.length !== 8) return;
+      const formattedZipcode = zipcode.replace('-', '');
+      if (formattedZipcode.length !== 8) return;
 
       const response = await fetch(
-        `https://brasilapi.com.br/api/cep/v1/${zipcode}`
+        `https://brasilapi.com.br/api/cep/v1/${formattedZipcode}`
       );
       const address: Address = await response.json();
 
@@ -59,6 +60,7 @@ export function StudentForm() {
           placeholder="Matricula - (RA)"
           name="registration"
           style={{ textTransform: 'uppercase' }}
+          mask="RA"
           value={registration}
           onChange={event => setRegistration(event.target.value)}
         />
@@ -81,6 +83,7 @@ export function StudentForm() {
           title="CEP"
           placeholder="CEP"
           name="address.zipcode"
+          mask="zipcode"
           value={zipcode}
           onChange={event => setZipcode(event.target.value)}
         />
@@ -117,6 +120,8 @@ export function StudentForm() {
           title="Estado"
           placeholder="Estado"
           name="address.state"
+          maxLength={2}
+          style={{ textTransform: 'uppercase' }}
           value={state}
           onChange={event => setState(event.target.value)}
         />
