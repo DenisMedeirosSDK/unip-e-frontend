@@ -1,31 +1,30 @@
 import React, { InputHTMLAttributes, useRef } from 'react';
-import { Control, Controller } from 'react-hook-form';
+import { inputMaskZipcode, inputMaskRegistrationRA } from '../../utils/masks';
 
 import { Container, Label, InputText } from './styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
   name: string;
+  mask?: 'zipcode' | 'RA';
 }
 
-export function Input({ title, name, ...rest }: Props) {
-  const inputRef = useRef();
+export function Input({ title, name, mask, ...rest }: Props) {
+  function handleKeyUp(event: React.FormEvent<HTMLInputElement>) {
+    if (mask === 'zipcode') {
+      inputMaskZipcode(event);
+    }
+    if (mask === 'RA') {
+      inputMaskRegistrationRA(event);
+    }
+
+    [mask];
+  }
+
   return (
     <Container>
       <Label>{title}</Label>
-      <InputText name={name} {...rest} />
+      <InputText name={name} {...rest} onKeyUp={handleKeyUp} />
     </Container>
   );
-}
-{
-  /* <Container>
-<Label>{title}</Label>
-<Controller
-  control={control}
-  render={({ field: { onChange, value } }) => (
-    <InputText onChange={onChange} value={value} {...rest} />
-  )}
-  name={name}
-/>
-</Container> */
 }
