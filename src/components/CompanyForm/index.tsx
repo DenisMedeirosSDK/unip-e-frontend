@@ -58,6 +58,7 @@ export function CompanyForm() {
   useEffect(() => {
     async function searchCompany() {
       if (cnpj === '') return;
+      if (cnpj.length !== 14) return;
 
       const response = await fetch(
         `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`
