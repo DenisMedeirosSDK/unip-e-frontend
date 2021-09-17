@@ -10,3 +10,7 @@ export const SubTitle = styled.p`
   font-size: 24px;
   margin-bottom: 30px;
 `;
+
+export const Divider = styled.div`
+  margin: 30px 0;
+`;

@@ -1,9 +1,7 @@
-import { Container, Header, Content, Title, Divider } from '../styles/Home';
-
 import UnipLogoSvg from '../assets/logo-unip.svg';
-import { StudentForm } from '../components/StudentForm';
-import { CompanyForm } from '../components/CompanyForm';
-import { InternshipForm } from '../components/InternshipForm';
+
+import { Container, Header, Content, Title, Divider } from '../styles/Home';
+import { InternshipInfo } from '../components/internshipInfo';
 
 export default function Home() {
   return (
@@ -14,11 +12,7 @@ export default function Home() {
       </Header>
       <Content>
         <h1>Estágio supervisionado</h1>
-        <StudentForm />
-        <Divider />
-        <CompanyForm />
-        <Divider />
-        <InternshipForm />
+        <InternshipInfo />
       </Content>
     </Container>
   );
