@@ -21,9 +21,6 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@types/ejs": "^3.1.0",
-    "@types/file-saver": "^2.0.3",
-    "@types/html-pdf": "^2.2.1",
     "@types/pdfmake": "^0.1.18",
     "@types/react": "^17.0.20",
     "@types/styled-components": "^5.1.14",
