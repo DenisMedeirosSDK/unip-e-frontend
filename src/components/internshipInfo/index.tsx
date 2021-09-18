@@ -6,6 +6,7 @@ import { generatePDFMake } from '../../utils/generatePDFMake';
 import { Address, InternshipInfoDTO } from '../../dtos/InternshipInfodto';
 
 import { Container, Divider, Form, SubTitle } from './styles';
+import { Button } from '../Button';
 
 interface BrasilAPICNPJResponse {
   razao_social: string;
@@ -155,7 +156,7 @@ export function InternshipInfo() {
 
   return (
     <Container>
-      <SubTitle>Dados do estágiario</SubTitle>
+      <SubTitle>Dados do aluno</SubTitle>
       <Input
         title="Nome"
         placeholder="Nome"
@@ -308,8 +309,8 @@ export function InternshipInfo() {
         onChange={event => setStreetNumberCompany(event.target.value)}
       />
       <Input
-        title="ComplementCompanyo"
-        placeholder="ComplementCompanyo"
+        title="Complemento"
+        placeholder="Complemento"
         name="address.complementCompany"
         value={complementCompany}
         onChange={event => setComplementCompany(event.target.value)}
@@ -366,7 +367,7 @@ export function InternshipInfo() {
         value={totalHours}
         onChange={event => setTotalHours(event.target.value)}
       />
-      <button onClick={() => generatePDFMake(data)}>Gerar anexo 01</button>
+      <Button title="Gerar anexos" onClick={() => generatePDFMake(data)} />
     </Container>
   );
 }
