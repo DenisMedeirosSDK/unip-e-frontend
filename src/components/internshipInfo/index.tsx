@@ -7,6 +7,7 @@ import { Address, InternshipInfoDTO } from '../../dtos/InternshipInfodto';
 
 import { Container, Divider, Form, SubTitle } from './styles';
 import { Button } from '../Button';
+import { attachmentsTemplateInternshipInfo } from '../../templates/attachmentsTemplateInternshipInfo';
 
 interface BrasilAPICNPJResponse {
   razao_social: string;
@@ -153,6 +154,11 @@ export function InternshipInfo() {
       totalHours,
     },
   };
+
+  function handleGeneratePDF() {
+    const templates = attachmentsTemplateInternshipInfo(data);
+    generatePDFMake(templates);
+  }
 
   return (
     <Container>
@@ -367,7 +373,7 @@ export function InternshipInfo() {
         value={totalHours}
         onChange={event => setTotalHours(event.target.value)}
       />
-      <Button title="Gerar anexos" onClick={() => generatePDFMake(data)} />
+      <Button title="Gerar anexos" onClick={handleGeneratePDF} />
     </Container>
   );
 }
