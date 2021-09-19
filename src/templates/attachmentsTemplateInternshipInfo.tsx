@@ -42,7 +42,7 @@ export function attachmentsTemplateInternshipInfo(data: InternshipInfoDTO) {
         Curso de ${data.student.course}
         UNIP - Universidade Paulista / Unidade Universitária de Sorocaba
         Av. Independência, 412 - Éden
-        CEP 18087-101 –Sorocaba / SP
+        CEP 18087-101 – Sorocaba / SP
         
         Ref. Estágio
         `,
@@ -146,8 +146,16 @@ export function attachmentsTemplateInternshipInfo(data: InternshipInfoDTO) {
       lineHeight: 1.5,
     },
     {
-      text: `Endereço: ${data.company.address.street}, Numero: ${data.company.address.streetNumber}
-      Cidade: ${data.company.address.city}  -  Estado: ${data.company.address.state}  -  CEP: ${data.company.address.zipcode}
+      text: `Endereço: ${data.company.address.street}, Numero: ${
+        data.company.address.streetNumber
+      }  -  ${
+        data.company.address.complement.length > 0
+          ? data.company.address.complement
+          : ''
+      }
+      Cidade: ${data.company.address.city}  -  Estado: ${
+        data.company.address.state
+      }  -  CEP: ${data.company.address.zipcode}
       Telefone(s): ${data.company.phone1}  -  ${data.company.phone2}`,
       margin: [0, 10, 0, 10],
       alignment: 'justify',
@@ -194,8 +202,16 @@ export function attachmentsTemplateInternshipInfo(data: InternshipInfoDTO) {
       lineHeight: 1.5,
     },
     {
-      text: `Endereço: ${data.student.address.street}, Numero: ${data.student.address.streetNumber}
-      Cidade: ${data.student.address.city}  -  Estado: ${data.student.address.state}  -  CEP: ${data.student.address.zipcode}`,
+      text: `Endereço: ${data.student.address.street}, Numero: ${
+        data.student.address.streetNumber
+      }  -  ${
+        data.student.address.complement.length > 0
+          ? data.student.address.complement
+          : ''
+      }
+      Cidade: ${data.student.address.city}  -  Estado: ${
+        data.student.address.state
+      }  -  CEP: ${data.student.address.zipcode}`,
       margin: [0, 10, 0, 20],
       alignment: 'justify',
       lineHeight: 1.5,
@@ -223,8 +239,16 @@ export function attachmentsTemplateInternshipInfo(data: InternshipInfoDTO) {
       lineHeight: 1.5,
     },
     {
-      text: `Endereço: ${data.company.address.street}, Numero: ${data.company.address.streetNumber}
-      Cidade: ${data.company.address.city}  -  Estado: ${data.company.address.state}  -  CEP: ${data.company.address.zipcode}
+      text: `Endereço: ${data.company.address.street}, Numero: ${
+        data.company.address.streetNumber
+      }  -  ${
+        data.company.address.complement.length > 0
+          ? data.company.address.complement
+          : ''
+      }
+      Cidade: ${data.company.address.city}  -  Estado: ${
+        data.company.address.state
+      }  -  CEP: ${data.company.address.zipcode}
       Telefone(s): ${data.company.phone1}  -  ${data.company.phone2}`,
       margin: [0, 10, 0, 10],
       alignment: 'justify',
