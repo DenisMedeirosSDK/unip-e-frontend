@@ -10,7 +10,7 @@ import UnipLogoSvg from '../../assets/logo-unip.svg';
 import { attachmentsTemplateSurveys } from '../../templates/attachmentsTemplateSurveys';
 import { generatePDFMake } from '../../utils/generatePDFMake';
 
-import styles from '../../styles/surveyPerformace.module.css';
+import styles from '../../styles/pages/surveyPerformace.module.scss';
 
 export default function Performace() {
   const [average01, setAverage01] = useState('');
@@ -173,8 +173,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average01}
             onChange={event => setAverage01(event.target.value)}
           />
@@ -185,8 +184,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average02}
             onChange={event => setAverage02(event.target.value)}
           />
@@ -197,8 +195,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average03}
             onChange={event => setAverage03(event.target.value)}
           />
@@ -209,8 +206,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average04}
             onChange={event => setAverage04(event.target.value)}
           />
@@ -221,8 +217,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average05}
             onChange={event => setAverage05(event.target.value)}
           />
@@ -233,8 +228,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average06}
             onChange={event => setAverage06(event.target.value)}
           />
@@ -245,8 +239,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average07}
             onChange={event => setAverage07(event.target.value)}
           />
@@ -257,8 +250,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average08}
             onChange={event => setAverage08(event.target.value)}
           />
@@ -269,8 +261,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average09}
             onChange={event => setAverage09(event.target.value)}
           />
@@ -281,8 +272,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average10}
             onChange={event => setAverage10(event.target.value)}
           />
@@ -293,8 +283,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average11}
             onChange={event => setAverage11(event.target.value)}
           />
@@ -305,8 +294,7 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average12}
             onChange={event => setAverage12(event.target.value)}
           />
@@ -317,43 +305,37 @@ export default function Performace() {
         >
           <Input
             title=""
-            name=""
-            placeholder="Nota - 0 á 10"
+            placeholder="Nota - 0 a 10"
             value={average13}
             onChange={event => setAverage13(event.target.value)}
           />
         </SurveyQuestions>
         <div className={styles.divider} />
         <Input
-          name=""
           placeholder="Sim ou Não"
           title="O estágio foi útil para o estudante?"
           value={average14}
           onChange={event => setAverage14(event.target.value)}
         />
         <Input
-          name=""
           placeholder="Sim ou Não"
           title="O estágio foi útil pela Unidade Concedente?"
           value={average15}
           onChange={event => setAverage15(event.target.value)}
         />
         <Input
-          name=""
           placeholder="Sugestão de melhoras"
           title="No caso das respostas serem negativas, que medidas podem ser tomadas para a sua efetiva correção e continuidade"
           value={average16}
           onChange={event => setAverage16(event.target.value)}
         />
         <Input
-          name=""
           placeholder="Sim ou Não"
           title="O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?"
           value={average17}
           onChange={event => setAverage17(event.target.value)}
         />
         <Input
-          name=""
           placeholder="Função / Cargo"
           title="Em caso positivo, em que nível e função foi admitido?"
           value={average18}

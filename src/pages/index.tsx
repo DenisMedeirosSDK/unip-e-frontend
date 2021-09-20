@@ -4,15 +4,14 @@ import { InternshipInfo } from '../components/internshipInfo';
 
 import UnipLogoSvg from '../assets/logo-unip.svg';
 
-import styles from '../styles/surveyPerformace.module.css';
-import { Container, Header, Content, Title, Divider } from '../styles/Home';
+import styles from '../styles/pages/home.module.scss';
 
 export default function Home() {
   return (
-    <Container>
-      <Header>
+    <div>
+      <div className={styles.header}>
         <UnipLogoSvg />
-        <Title>Orientação de estágio</Title>
+        <p>Orientação de estágio</p>
         <div className={styles.menu}>
           <Link href="/">
             <a className={styles.menuText}>Inicio</a>
@@ -21,11 +20,11 @@ export default function Home() {
             <a className={styles.menuText}>Performace do aluno</a>
           </Link>
         </div>
-      </Header>
-      <Content>
+      </div>
+      <div className={styles.content}>
         <h1>Estágio supervisionado</h1>
         <InternshipInfo />
-      </Content>
-    </Container>
+      </div>
+    </div>
   );
 }

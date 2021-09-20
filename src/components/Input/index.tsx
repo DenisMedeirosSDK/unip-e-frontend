@@ -1,15 +1,14 @@
-import React, { InputHTMLAttributes, useRef } from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import { inputMaskZipcode, inputMaskRegistrationRA } from '../../utils/masks';
 
-import { Container, Label, InputText } from './styles';
+import styles from './styles.module.scss';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
-  name: string;
   mask?: 'zipcode' | 'RA';
 }
 
-export function Input({ title, name, mask, ...rest }: Props) {
+export function Input({ title, mask, ...rest }: Props) {
   function handleKeyUp(event: React.FormEvent<HTMLInputElement>) {
     if (mask === 'zipcode') {
       inputMaskZipcode(event);
@@ -22,9 +21,9 @@ export function Input({ title, name, mask, ...rest }: Props) {
   }
 
   return (
-    <Container>
-      <Label>{title}</Label>
-      <InputText name={name} {...rest} onKeyUp={handleKeyUp} />
-    </Container>
+    <div className={styles.container}>
+      <p>{title}</p>
+      <input className={styles.input} {...rest} onKeyUp={handleKeyUp} />
+    </div>
   );
 }
