@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-import { Input } from '../Input';
-
+import { attachmentsTemplateInternshipInfo } from '../../templates/attachmentsTemplateInternshipInfo';
 import { generatePDFMake } from '../../utils/generatePDFMake';
 import { Address, InternshipInfoDTO } from '../../dtos/InternshipInfodto';
 
-import { Container, Divider, Form, SubTitle } from './styles';
 import { Button } from '../Button';
-import { attachmentsTemplateInternshipInfo } from '../../templates/attachmentsTemplateInternshipInfo';
+import { Input } from '../Input';
+
+import styles from './styles.module.scss';
 
 interface BrasilAPICNPJResponse {
   razao_social: string;
@@ -161,19 +161,17 @@ export function InternshipInfo() {
   }
 
   return (
-    <Container>
-      <SubTitle>Dados do aluno</SubTitle>
+    <div className={styles.container}>
+      <p className={styles.subTitle}>Dados do aluno</p>
       <Input
         title="Nome"
         placeholder="Nome"
-        name="name"
         value={name}
         onChange={event => setName(event.target.value)}
       />
       <Input
         title="Matricula - (RA)"
         placeholder="Matricula - (RA)"
-        name="registration"
         style={{ textTransform: 'uppercase' }}
         mask="RA"
         value={registration}
@@ -182,21 +180,18 @@ export function InternshipInfo() {
       <Input
         title="Curso"
         placeholder="Curso"
-        name="course"
         value={course}
         onChange={event => setCourse(event.target.value)}
       />
       <Input
         title="Semestre"
         placeholder="Semestre"
-        name="semester"
         maxLength={2}
         value={semester}
         onChange={event => setSemester(event.target.value)}
       />
       <Input
         title="Cargo/Função"
-        name=""
         placeholder="Cargo do aluno na empresa"
         value={office}
         onChange={event => setOffice(event.target.value)}
@@ -204,7 +199,6 @@ export function InternshipInfo() {
       <Input
         title="CEP"
         placeholder="CEP"
-        name="address.zipcode"
         mask="zipcode"
         value={zipcode}
         onChange={event => setZipcode(event.target.value)}
@@ -212,14 +206,12 @@ export function InternshipInfo() {
       <Input
         title="Endereço"
         placeholder="Endereço"
-        name="address.street"
         value={street}
         onChange={event => setStreet(event.target.value)}
       />
       <Input
         title="Numero"
         placeholder="Numero"
-        name="address.streetNumber"
         maxLength={5}
         value={streetNumber}
         onChange={event => setStreetNumber(event.target.value)}
@@ -227,66 +219,56 @@ export function InternshipInfo() {
       <Input
         title="Complemento"
         placeholder="Complemento"
-        name="address.complement"
         value={complement}
         onChange={event => setComplement(event.target.value)}
       />
       <Input
         title="Cidade"
         placeholder="Cidade"
-        name="address.city"
         value={city}
         onChange={event => setCity(event.target.value)}
       />
       <Input
         title="Estado"
         placeholder="Estado"
-        name="address.state"
         maxLength={2}
-        style={{ textTransform: 'uppercase' }}
         value={state}
         onChange={event => setState(event.target.value)}
       />
-      <Divider />
-      <SubTitle>Dados da empresa</SubTitle>
+      <div className={styles.divider} />
+      <p className={styles.subTitle}>Dados da empresa</p>
       <Input
         title="CNPJ"
-        name=""
         placeholder="CNPJ"
         value={cnpj}
         onChange={event => setCNPJ(event.target.value)}
       />
       <Input
         title="Nome da empresa"
-        name=""
         placeholder="Nome da empresa"
         value={corporateName}
         onChange={event => setCorporateName(event.target.value)}
       />
       <Input
         title="Nome fantasia"
-        name=""
         placeholder="Nome fantasia"
         value={fantasyName}
         onChange={event => setFantasyName(event.target.value)}
       />
       <Input
         title="Atividade da Unidade Concedente"
-        name=""
         placeholder="Atividade da Unidade Concedente"
         value={description}
         onChange={event => setDescription(event.target.value)}
       />
       <Input
         title="Telefone"
-        name=""
         placeholder="Telefone"
         value={phoneCompany}
         onChange={event => setPhoneCompany(event.target.value)}
       />
       <Input
         title="Celular"
-        name=""
         placeholder="Celular"
         value={cellPhoneCompany}
         onChange={event => setCellPhoneCompany(event.target.value)}
@@ -294,7 +276,6 @@ export function InternshipInfo() {
       <Input
         title="CEP"
         placeholder="CEP"
-        name="address.zipcodeCompany"
         mask="zipcode"
         value={zipcodeCompany}
         onChange={event => setZipcodeCompany(event.target.value)}
@@ -302,14 +283,12 @@ export function InternshipInfo() {
       <Input
         title="Endereço"
         placeholder="Endereço"
-        name="address.streetCompany"
         value={streetCompany}
         onChange={event => setStreetCompany(event.target.value)}
       />
       <Input
         title="Numero"
         placeholder="Numero"
-        name="address.streetCompanyNumber"
         maxLength={5}
         value={streetNumberCompany}
         onChange={event => setStreetNumberCompany(event.target.value)}
@@ -317,63 +296,60 @@ export function InternshipInfo() {
       <Input
         title="Complemento"
         placeholder="Complemento"
-        name="address.complementCompany"
         value={complementCompany}
         onChange={event => setComplementCompany(event.target.value)}
       />
       <Input
         title="Cidade"
         placeholder="Cidade"
-        name="address.cityCompany"
         value={cityCompany}
         onChange={event => setCityCompany(event.target.value)}
       />
       <Input
         title="Estado"
         placeholder="Estado"
-        name="address.state"
         value={stateCompany}
         onChange={event => setStateCompany(event.target.value)}
       />
-      <Divider />
 
-      <SubTitle>Dados do estágio</SubTitle>
+      <div className={styles.divider} />
+
+      <p className={styles.subTitle}>Dados do estágio</p>
+
       <Input
         title="Nome do orientador"
-        name=""
         placeholder="Nome do orientador"
         value={nameAdvisor}
         onChange={event => setNameAdvisor(event.target.value)}
       />
       <Input
         title="RG do orientador"
-        name=""
         placeholder="RG do orientador"
         value={rgAdvisor}
         onChange={event => setRGAdvisor(event.target.value)}
       />
       <Input
         title="Data de Inicio"
-        name=""
         placeholder="Data de Inicio"
         value={startDate}
         onChange={event => setStartDate(event.target.value)}
       />
       <Input
         title="Data de Termino"
-        name=""
         placeholder="Data de Termino"
         value={endDate}
         onChange={event => setEndDate(event.target.value)}
       />
       <Input
         title="Total de horas"
-        name=""
         placeholder="Total de horas"
         value={totalHours}
         onChange={event => setTotalHours(event.target.value)}
       />
+
+      <div className={styles.divider} />
+
       <Button title="Gerar anexos" onClick={handleGeneratePDF} />
-    </Container>
+    </div>
   );
 }

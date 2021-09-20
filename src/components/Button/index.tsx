@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
