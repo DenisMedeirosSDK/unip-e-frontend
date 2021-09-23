@@ -138,8 +138,7 @@ export default function Performace() {
       average17,
     },
     question18: {
-      title:
-        'O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?',
+      title: 'Em caso positivo, em que nível e função foi admitido?',
       average18,
     },
   };
