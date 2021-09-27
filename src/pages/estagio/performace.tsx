@@ -174,6 +174,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average01}
+            maxLength={2}
             onChange={event => setAverage01(event.target.value)}
           />
         </SurveyQuestions>
@@ -185,6 +186,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average02}
+            maxLength={2}
             onChange={event => setAverage02(event.target.value)}
           />
         </SurveyQuestions>
@@ -196,6 +198,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average03}
+            maxLength={2}
             onChange={event => setAverage03(event.target.value)}
           />
         </SurveyQuestions>
@@ -207,6 +210,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average04}
+            maxLength={2}
             onChange={event => setAverage04(event.target.value)}
           />
         </SurveyQuestions>
@@ -218,6 +222,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average05}
+            maxLength={2}
             onChange={event => setAverage05(event.target.value)}
           />
         </SurveyQuestions>
@@ -229,6 +234,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average06}
+            maxLength={2}
             onChange={event => setAverage06(event.target.value)}
           />
         </SurveyQuestions>
@@ -240,6 +246,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average07}
+            maxLength={2}
             onChange={event => setAverage07(event.target.value)}
           />
         </SurveyQuestions>
@@ -251,6 +258,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average08}
+            maxLength={2}
             onChange={event => setAverage08(event.target.value)}
           />
         </SurveyQuestions>
@@ -262,6 +270,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average09}
+            maxLength={2}
             onChange={event => setAverage09(event.target.value)}
           />
         </SurveyQuestions>
@@ -273,6 +282,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average10}
+            maxLength={2}
             onChange={event => setAverage10(event.target.value)}
           />
         </SurveyQuestions>
@@ -284,6 +294,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average11}
+            maxLength={2}
             onChange={event => setAverage11(event.target.value)}
           />
         </SurveyQuestions>
@@ -295,6 +306,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average12}
+            maxLength={2}
             onChange={event => setAverage12(event.target.value)}
           />
         </SurveyQuestions>
@@ -306,6 +318,7 @@ export default function Performace() {
             title=""
             placeholder="Nota - 0 a 10"
             value={average13}
+            maxLength={2}
             onChange={event => setAverage13(event.target.value)}
           />
         </SurveyQuestions>
