@@ -14,7 +14,14 @@ interface InternshipInfoDTO {
     course: string;
     semester: string;
     office: string;
-    address: Address;
+    address: {
+      zipcode: string;
+      street: string;
+      streetNumber: string;
+      complement?: string;
+      city: string;
+      state: string;
+    };
   };
   company: {
     cnpj?: string;
@@ -22,7 +29,14 @@ interface InternshipInfoDTO {
     fantasyName?: string;
     description: string;
     logo?: string;
-    address: Address;
+    address: {
+      zipcode: string;
+      street: string;
+      streetNumber: string;
+      complement?: string;
+      city: string;
+      state: string;
+    };
     phone1?: string;
     phone2?: string;
   };

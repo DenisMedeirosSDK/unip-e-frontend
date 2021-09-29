@@ -1,4 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
+import { FieldError } from 'react-hook-form';
 
 import {
   inputMaskZipcode,
@@ -15,9 +16,18 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
   mask?: 'zipcode' | 'RA' | 'RG' | 'CNPJ' | 'date' | 'phone';
   name?: string;
+  register?: any;
+  error?: FieldError;
 }
 
-export function Input({ title, mask, name, ...rest }: Props) {
+export function Input({
+  title,
+  mask,
+  name,
+  register,
+  error = null,
+  ...rest
+}: Props) {
   async function handleKeyUp(event: React.FormEvent<HTMLInputElement>) {
     switch (mask) {
       case 'zipcode':
@@ -53,8 +63,10 @@ export function Input({ title, mask, name, ...rest }: Props) {
         className={styles.input}
         onKeyUp={handleKeyUp}
         onChangeCapture={handleKeyUp}
+        {...register}
         {...rest}
       />
+      {!!error && <p className={styles.error}>{error?.message}</p>}
     </div>
   );
 }
