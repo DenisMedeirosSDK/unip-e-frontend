@@ -60,7 +60,7 @@ const schema = Yup.object({
   average15: Yup.string().required('É obrigatorio responder essa questão.'),
   average16: Yup.string(),
   average17: Yup.string().required('É obrigatorio responder essa questão.'),
-  average18: Yup.string().required('É obrigatorio responder essa questão.'),
+  average18: Yup.string(),
 });
 
 interface IAverages {
