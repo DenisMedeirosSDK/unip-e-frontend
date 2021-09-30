@@ -13,7 +13,7 @@ import {
 import styles from './styles.module.scss';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  title: string;
+  title?: string;
   mask?: 'zipcode' | 'RA' | 'RG' | 'CNPJ' | 'date' | 'phone';
   name?: string;
   register?: any;
@@ -56,7 +56,7 @@ export function Input({
 
   return (
     <div className={styles.container}>
-      <p>{title}</p>
+      {!!title && <p>{title}</p>}
       <input
         id={name}
         name={name}

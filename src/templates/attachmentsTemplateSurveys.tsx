@@ -3,13 +3,32 @@ import ptBR from 'date-fns/locale/pt-BR';
 
 import { Content } from 'pdfmake/interfaces';
 
-import { SurveysDTO } from '../dtos/SurveysDTO';
-
 const todayDate = format(new Date(), "dd 'de' MMMM 'de' yyyy", {
   locale: ptBR,
 });
 
-export function attachmentsTemplateSurveys(data: SurveysDTO) {
+interface IAverages {
+  average01: string;
+  average02: string;
+  average03: string;
+  average04: string;
+  average05: string;
+  average06: string;
+  average07: string;
+  average08: string;
+  average09: string;
+  average10: string;
+  average11: string;
+  average12: string;
+  average13: string;
+  average14: string;
+  average15: string;
+  average16: string;
+  average17: string;
+  average18: string;
+}
+
+export function attachmentsTemplateSurveys(data: IAverages) {
   const Attachment01: Content = [
     {
       table: {
@@ -21,120 +40,120 @@ export function attachmentsTemplateSurveys(data: SurveysDTO) {
           ],
           [
             {
-              text: `${data.question01.title}: ${data.question01.question}`,
+              text: `APRESENTAÇÃO: adequação do traje ao ambiente de trabalho, observância das normas da empresa.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question01.average01}`,
+            `${data.average01}`,
           ],
           [
             {
-              text: `${data.question02.title}: ${data.question02.question}`,
+              text: `ASSIDUIDADE E PONTUALIDADE: comparecimento com regularidade às atividades e cumprimento dos horários e prazos estabelecidos.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question02.average02}`,
+            `${data.average02}`,
           ],
           [
             {
-              text: `${data.question03.title}: ${data.question03.question}`,
+              text: `COMPETÊNCIA: capacidade técnica para execução de tarefas.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question03.average03}`,
+            `${data.average03}`,
           ],
           [
             {
-              text: `${data.question04.title}: ${data.question04.question}`,
+              text: `CONHECIMENTO TEÓRICO: conhecimento teórico demonstrado no cumprimento do estágio.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            ` ${data.question04.average04}`,
+            ` ${data.average04}`,
           ],
           [
             {
-              text: `${data.question05.title}: ${data.question05.question}`,
+              text: `COOPERAÇÃO: atuação junto a outras pessoas no sentido de contribuir para o alcance de um objetivo comum.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question05.average05}`,
+            `${data.average05}`,
           ],
           [
             {
-              text: `${data.question06.title}: ${data.question06.question}`,
+              text: `DESEMPENHO: rapidez, precisão e qualidade na execução das tarefas.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question06.average06}`,
+            `${data.average06}`,
           ],
           [
             {
-              text: `${data.question07.title}: ${data.question07.question}`,
+              text: `FACILIDADE DE COMPREENSÃO: capacidade  de  entender, interpretar e por em prática instruções recebidas.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question07.average07}`,
+            `${data.average07}`,
           ],
           [
             {
-              text: `${data.question08.title}: ${data.question08.question}`,
+              text: `INICIATIVA: capacidade de procurar novas soluções, sem prévia orientação.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question08.average08}`,
+            `${data.average08}`,
           ],
           [
             {
-              text: `${data.question09.title}: ${data.question09.question}`,
+              text: `INTERESSE: empenho em superar as suas próprias limitações.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question09.average09}`,
+            `${data.average09}`,
           ],
           [
             {
-              text: `${data.question10.title}: ${data.question10.question}`,
+              text: `LIDERANÇA: empenho em superar as suas próprias limitações.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question10.average10}`,
+            `${data.average10}`,
           ],
           [
             {
-              text: `${data.question11.title}: ${data.question11.question}`,
+              text: `ORGANIZAÇÃO: capacidade de planejamento e preparo da execução de uma tarefa.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question11.average11}`,
+            `${data.average11}`,
           ],
           [
             {
-              text: `${data.question12.title}: ${data.question12.question}`,
+              text: `REDAÇÃO: clareza, precisão, objetividade e correção no uso da língua escrita.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question12.average12}`,
+            `${data.average12}`,
           ],
           [
             {
-              text: `${data.question13.title}: ${data.question13.question}`,
+              text: `RESPONSABILIDADE: cumprimento dos prazos estabelecidos e zelo pôr materiais, equipamentos ou instalações que lhe são confiados.`,
               alignment: 'justify',
               lineHeight: 1.5,
               margin: [0, 0, 0, 5],
             },
-            `${data.question13.average13}`,
+            `${data.average13}`,
           ],
         ],
       },
@@ -144,31 +163,31 @@ export function attachmentsTemplateSurveys(data: SurveysDTO) {
 
   const Attachment02: Content = [
     {
-      text: `${data.question14.title}: ${data.question14.average14}`,
+      text: `O estágio foi útil para o estudante?: ${data.average14}`,
       pageBreak: 'before',
       alignment: 'justify',
       lineHeight: 1.5,
     },
     {
-      text: `${data.question15.title}: ${data.question15.average15}`,
+      text: `O estágio foi útil pela Unidade Concedente?: ${data.average15}`,
 
       alignment: 'justify',
       lineHeight: 1.5,
     },
     {
-      text: `${data.question16.title}: ${data.question16.average16}`,
+      text: `No caso das respostas serem negativas, que medidas podem ser tomadas para a sua efetiva correção e continuidade: ${data.average16}`,
 
       alignment: 'justify',
       lineHeight: 1.5,
     },
     {
-      text: `${data.question17.title}: ${data.question17.average17}`,
+      text: `O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?: ${data.average17}`,
 
       alignment: 'justify',
       lineHeight: 1.5,
     },
     {
-      text: `${data.question18.title}: ${data.question18.average18}`,
+      text: `Em caso positivo, em que nível e função foi admitido?: ${data.average18}`,
 
       alignment: 'justify',
       lineHeight: 1.5,
