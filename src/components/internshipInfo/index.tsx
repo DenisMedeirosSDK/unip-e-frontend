@@ -189,7 +189,7 @@ export function InternshipInfo() {
           register={register('student.course')}
           title="Curso"
           placeholder="Curso"
-          error={errors.student?.registration}
+          error={errors.student?.course}
         />
         <Input
           name="student.semester"
