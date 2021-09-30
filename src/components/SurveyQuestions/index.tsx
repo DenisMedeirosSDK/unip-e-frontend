@@ -1,21 +1,19 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import styles from './styles.module.scss';
 
 interface Props {
   title: string;
   question: string;
-  children?: ReactNode;
 }
 
-export function SurveyQuestions({ title, question, children }: Props) {
+export function SurveyQuestions({ title, question }: Props) {
   return (
-    <div>
+    <>
       <p className={styles.title}>{title}</p>
       <div className={styles.wrapper}>
         <p className={styles.question}>{question}</p>
       </div>
-      {children}
-    </div>
+    </>
   );
 }

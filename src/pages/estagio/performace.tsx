@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
+
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 
 import { SurveyQuestions } from '../../components/SurveyQuestions';
 import { Input } from '../../components/Input';
@@ -12,140 +16,89 @@ import { generatePDFMake } from '../../utils/generatePDFMake';
 
 import styles from '../../styles/pages/surveyPerformace.module.scss';
 
-export default function Performace() {
-  const [average01, setAverage01] = useState('');
-  const [average02, setAverage02] = useState('');
-  const [average03, setAverage03] = useState('');
-  const [average04, setAverage04] = useState('');
-  const [average05, setAverage05] = useState('');
-  const [average06, setAverage06] = useState('');
-  const [average07, setAverage07] = useState('');
-  const [average08, setAverage08] = useState('');
-  const [average09, setAverage09] = useState('');
-  const [average10, setAverage10] = useState('');
-  const [average11, setAverage11] = useState('');
-  const [average12, setAverage12] = useState('');
-  const [average13, setAverage13] = useState('');
-  const [average14, setAverage14] = useState('');
-  const [average15, setAverage15] = useState('');
-  const [average16, setAverage16] = useState('');
-  const [average17, setAverage17] = useState('');
-  const [average18, setAverage18] = useState('');
+const schema = Yup.object({
+  average01: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average02: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average03: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average04: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average05: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average06: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average07: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average08: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average09: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average10: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average11: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average12: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average13: Yup.string()
+    .max(2, 'No máximo 2 caracteres')
+    .required('É obrigatorio responder essa questão.'),
+  average14: Yup.string().required('É obrigatorio responder essa questão.'),
+  average15: Yup.string().required('É obrigatorio responder essa questão.'),
+  average16: Yup.string(),
+  average17: Yup.string().required('É obrigatorio responder essa questão.'),
+  average18: Yup.string().required('É obrigatorio responder essa questão.'),
+});
 
-  const data = {
-    question01: {
-      id: '1',
-      title: 'APRESENTAÇÃO',
-      average01,
-      question:
-        'adequação do traje ao ambiente de trabalho, observância das normas da empresa.',
-    },
-    question02: {
-      id: '2',
-      title: 'ASSIDUIDADE E PONTUALIDADE',
-      average02,
-      question:
-        'comparecimento com regularidade às atividades e cumprimento dos horários e prazos estabelecidos.',
-    },
-    question03: {
-      id: '3',
-      title: 'COMPETÊNCIA',
-      average03,
-      question: 'capacidade técnica para execução de tarefas.',
-    },
-    question04: {
-      id: '4',
-      title: 'CONHECIMENTO TEÓRICO',
-      average04,
-      question: 'conhecimento teórico demonstrado no cumprimento do estágio.',
-    },
-    question05: {
-      id: '5',
-      title: 'COOPERAÇÃO',
-      average05,
-      question:
-        'atuação junto a outras pessoas no sentido de contribuir para o alcance de um objetivo comum.',
-    },
-    question06: {
-      id: '6',
-      title: 'DESEMPENHO',
-      average06,
-      question: 'rapidez, precisão e qualidade na execução das tarefas.',
-    },
-    question07: {
-      id: '7',
-      title: 'FACILIDADE DE COMPREENSÃO',
-      average07,
-      question:
-        'capacidade  de  entender, interpretar e por em prática instruções recebidas.',
-    },
-    question08: {
-      id: '8',
-      title: 'INICIATIVA',
-      average08,
-      question: 'capacidade de procurar novas soluções, sem prévia orientação.',
-    },
-    question09: {
-      id: '9',
-      title: 'INTERESSE',
-      average09,
-      question: 'empenho em superar as suas próprias limitações.',
-    },
-    question10: {
-      id: '10',
-      title: 'LIDERANÇA',
-      average10,
-      question:
-        'capacidade de dirigir um grupo de pessoas na execução de uma tarefa.',
-    },
-    question11: {
-      id: '11',
-      title: 'ORGANIZAÇÃO',
-      average11,
-      question:
-        'capacidade de planejamento e preparo da execução de uma tarefa. ',
-    },
-    question12: {
-      id: '12',
-      title: 'REDAÇÃO',
-      average12,
-      question:
-        'clareza, precisão, objetividade e correção no uso da língua escrita.',
-    },
-    question13: {
-      id: '13',
-      title: 'RESPONSABILIDADE',
-      average13,
-      question:
-        'cumprimento dos prazos estabelecidos e zelo pôr materiais, equipamentos ou instalações que lhe são confiados.',
-    },
-    question14: {
-      title: 'O estágio foi útil para o estudante?',
-      average14,
-    },
-    question15: {
-      title: 'O estágio foi útil pela Unidade Concedente?',
-      average15,
-    },
-    question16: {
-      title:
-        'No caso das respostas serem negativas, que medidas podem ser tomadas para a sua efetiva correção e continuidade',
-      average16,
-    },
-    question17: {
-      title:
-        'O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?',
-      average17,
-    },
-    question18: {
-      title:
-        'O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?',
-      average18,
-    },
-  };
+interface IAverages {
+  average01: string;
+  average02: string;
+  average03: string;
+  average04: string;
+  average05: string;
+  average06: string;
+  average07: string;
+  average08: string;
+  average09: string;
+  average10: string;
+  average11: string;
+  average12: string;
+  average13: string;
+  average14: string;
+  average15: string;
+  average16: string;
+  average17: string;
+  average18: string;
+}
 
-  function handleGeneratePDF() {
-    generatePDFMake(attachmentsTemplateSurveys(data));
+export default function Performace2() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<IAverages>({
+    resolver: yupResolver(schema) as any,
+    reValidateMode: 'onChange',
+    mode: 'all',
+  });
+
+  function onSubmit(dataInfo: IAverages) {
+    generatePDFMake(attachmentsTemplateSurveys(dataInfo));
+    reset(dataInfo);
   }
 
   return (
@@ -163,189 +116,261 @@ export default function Performace() {
         </div>
       </div>
       <div className={styles.content}>
-        <p className={styles.legend}>
-          Insuficiente: até 2,9 | Regular: 3 a 6,9 | Bom: 7 a 8,9 | Excelente: 9
-          a 10
-        </p>
-        <SurveyQuestions
-          title="APRESENTAÇÃO PESSOAL"
-          question="adequação do traje ao ambiente de trabalho, observância das normas da empresa."
-        >
-          <Input
-            title=""
-            placeholder="Nota - 0 a 10"
-            value={average01}
-            onChange={event => setAverage01(event.target.value)}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <p className={styles.legend}>
+            Insuficiente: até 2,9 | Regular: 3 a 6,9 | Bom: 7 a 8,9 | Excelente:
+            9 a 10
+          </p>
+          <SurveyQuestions
+            title="APRESENTAÇÃO PESSOAL"
+            question="adequação do traje ao ambiente de trabalho, observância das normas da empresa."
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="ASSIDUIDADE E PONTUALIDADE"
-          question="comparecimento com regularidade às atividades e cumprimento dos horários e prazos estabelecidos."
-        >
           <Input
+            name="average01"
+            register={register('average01')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average02}
-            onChange={event => setAverage02(event.target.value)}
+            error={errors.average01}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="COMPETÊNCIA"
-          question="capacidade técnica para execução de tarefas."
-        >
+          <SurveyQuestions
+            title="ASSIDUIDADE E PONTUALIDADE"
+            question="comparecimento com regularidade às atividades e cumprimento dos horários e prazos estabelecidos."
+          />
           <Input
+            name="average02"
+            register={register('average02')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average03}
-            onChange={event => setAverage03(event.target.value)}
+            error={errors.average02}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="CONHECIMENTO TEÓRICO"
-          question="conhecimento teórico demonstrado no cumprimento do estágio."
-        >
+          <SurveyQuestions
+            title="COMPETÊNCIA"
+            question="capacidade técnica para execução de tarefas."
+          />
           <Input
+            name="average03"
+            register={register('average03')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average04}
-            onChange={event => setAverage04(event.target.value)}
+            error={errors.average03}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="COOPERAÇÃO"
-          question="atuação junto a outras pessoas no sentido de contribuir para o alcance de um objetivo comum."
-        >
+          <SurveyQuestions
+            title="CONHECIMENTO TEÓRICO"
+            question="conhecimento teórico demonstrado no cumprimento do estágio."
+          />
           <Input
+            name="average04"
+            register={register('average04')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average05}
-            onChange={event => setAverage05(event.target.value)}
+            error={errors.average04}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="DESEMPENHO"
-          question="rapidez, precisão e qualidade na execução das tarefas."
-        >
+          <SurveyQuestions
+            title="COOPERAÇÃO"
+            question="atuação junto a outras pessoas no sentido de contribuir para o alcance de um objetivo comum."
+          />
           <Input
+            name="average05"
+            register={register('average05')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average06}
-            onChange={event => setAverage06(event.target.value)}
+            error={errors.average05}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="FACILIDADE DE COMPREENSÃO"
-          question="capacidade  de  entender, interpretar e por em prática instruções recebidas."
-        >
+          <SurveyQuestions
+            title="DESEMPENHO"
+            question="rapidez, precisão e qualidade na execução das tarefas."
+          />
           <Input
+            name="average06"
+            register={register('average06')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average07}
-            onChange={event => setAverage07(event.target.value)}
+            error={errors.average06}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="INICIATIVA"
-          question="capacidade de procurar novas soluções, sem prévia orientação."
-        >
+          <SurveyQuestions
+            title="FACILIDADE DE COMPREENSÃO"
+            question="capacidade  de  entender, interpretar e por em prática instruções recebidas."
+          />
           <Input
+            name="average07"
+            register={register('average07')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average08}
-            onChange={event => setAverage08(event.target.value)}
+            error={errors.average07}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="INTERESSE"
-          question="empenho em superar as suas próprias limitações."
-        >
+          <SurveyQuestions
+            title="INICIATIVA"
+            question="capacidade de procurar novas soluções, sem prévia orientação."
+          />
           <Input
+            name="average08"
+            register={register('average08')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average09}
-            onChange={event => setAverage09(event.target.value)}
+            error={errors.average08}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="LIDERANÇA"
-          question="capacidade de dirigir um grupo de pessoas na execução de uma tarefa."
-        >
+          <SurveyQuestions
+            title="INTERESSE"
+            question="empenho em superar as suas próprias limitações."
+          />
           <Input
+            name="average09"
+            register={register('average09')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average10}
-            onChange={event => setAverage10(event.target.value)}
+            error={errors.average09}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="ORGANIZAÇÃO"
-          question="capacidade de planejamento e preparo da execução de uma tarefa."
-        >
+          <SurveyQuestions
+            title="LIDERANÇA"
+            question="capacidade de dirigir um grupo de pessoas na execução de uma tarefa."
+          />
           <Input
+            name="average10"
+            register={register('average10')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average11}
-            onChange={event => setAverage11(event.target.value)}
+            error={errors.average10}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="REDAÇÃO"
-          question="clareza, precisão, objetividade e correção no uso da língua escrita."
-        >
+          <SurveyQuestions
+            title="ORGANIZAÇÃO"
+            question="capacidade de planejamento e preparo da execução de uma tarefa."
+          />
+
           <Input
+            name="average11"
+            register={register('average11')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average12}
-            onChange={event => setAverage12(event.target.value)}
+            error={errors.average11}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <SurveyQuestions
-          title="RESPONSABILIDADE"
-          question="cumprimento dos prazos estabelecidos e zelo pôr materiais, equipamentos ou instalações que lhe são confiados."
-        >
+          <SurveyQuestions
+            title="REDAÇÃO"
+            question="clareza, precisão, objetividade e correção no uso da língua escrita."
+          />
           <Input
+            name="average12"
+            register={register('average12')}
             title=""
+            type="number"
+            min="0"
+            max="10"
+            required
             placeholder="Nota - 0 a 10"
-            value={average13}
-            onChange={event => setAverage13(event.target.value)}
+            error={errors.average12}
+            maxLength={2}
           />
-        </SurveyQuestions>
-        <div className={styles.divider} />
-        <Input
-          placeholder="Sim ou Não"
-          title="O estágio foi útil para o estudante?"
-          value={average14}
-          onChange={event => setAverage14(event.target.value)}
-        />
-        <Input
-          placeholder="Sim ou Não"
-          title="O estágio foi útil pela Unidade Concedente?"
-          value={average15}
-          onChange={event => setAverage15(event.target.value)}
-        />
-        <Input
-          placeholder="Sugestão de melhoras"
-          title="No caso das respostas serem negativas, que medidas podem ser tomadas para a sua efetiva correção e continuidade"
-          value={average16}
-          onChange={event => setAverage16(event.target.value)}
-        />
-        <Input
-          placeholder="Sim ou Não"
-          title="O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?"
-          value={average17}
-          onChange={event => setAverage17(event.target.value)}
-        />
-        <Input
-          placeholder="Função / Cargo"
-          title="Em caso positivo, em que nível e função foi admitido?"
-          value={average18}
-          onChange={event => setAverage18(event.target.value)}
-        />
-        <div className={styles.divider} />
-        <Button
-          title="Gerar relatorio de performace"
-          onClick={handleGeneratePDF}
-        />
+          <SurveyQuestions
+            title="RESPONSABILIDADE"
+            question="cumprimento dos prazos estabelecidos e zelo pôr materiais, equipamentos ou instalações que lhe são confiados."
+          />
+          <Input
+            name="average13"
+            register={register('average13')}
+            title=""
+            type="number"
+            min="0"
+            max="10"
+            required
+            placeholder="Nota - 0 a 10"
+            error={errors.average13}
+            maxLength={2}
+          />
+
+          <div className={styles.divider} />
+          <Input
+            name="average14"
+            register={register('average14')}
+            placeholder="Sim ou Não"
+            title="O estágio foi útil para o estudante?"
+            error={errors.average14}
+          />
+          <Input
+            name="average15"
+            register={register('average15')}
+            placeholder="Sim ou Não"
+            title="O estágio foi útil pela Unidade Concedente?"
+            error={errors.average15}
+          />
+          <Input
+            name="average16"
+            register={register('average16')}
+            placeholder="Sugestão de melhoras"
+            title="No caso das respostas serem negativas, que medidas podem ser tomadas para a sua efetiva correção e continuidade"
+            error={errors.average16}
+          />
+          <Input
+            name="average17"
+            register={register('average17')}
+            placeholder="Sim ou Não"
+            title="O estagiário passou a pertencer ao quadro de da Unidade Concedente, após o encerramento do estágio?"
+            error={errors.average17}
+          />
+          <Input
+            name="average18"
+            register={register('average18')}
+            placeholder="Função / Cargo"
+            title="Em caso positivo, em que nível e função foi admitido?"
+            error={errors.average18}
+          />
+
+          <div className={styles.divider} />
+          <Button title="Gerar relatorio de performace" type="submit" />
+        </form>
       </div>
     </div>
   );
