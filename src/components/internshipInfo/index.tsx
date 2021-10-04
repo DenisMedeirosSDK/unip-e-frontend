@@ -12,7 +12,7 @@ import { generatePDFMake } from '../../utils/generatePDFMake';
 
 import { Address, InternshipInfoDTO } from '../../dtos/InternshipInfodto';
 
-import styles from '../../styles/pages/home.module.scss';
+import styles from './styles.module.scss';
 
 const schema = Yup.object().shape({
   student: Yup.object({

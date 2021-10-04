@@ -103,18 +103,6 @@ export default function Performace2() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <UnipLogoSvg />
-        <p className={styles.title}>Orientação de estágio</p>
-        <div className={styles.menu}>
-          <Link href="/">
-            <a className={styles.menuText}>Inicio</a>
-          </Link>
-          <Link href="/estagio/performace">
-            <a className={styles.menuText}>Performace do aluno</a>
-          </Link>
-        </div>
-      </div>
       <div className={styles.content}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <p className={styles.legend}>
