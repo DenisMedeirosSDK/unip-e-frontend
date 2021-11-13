@@ -168,230 +168,234 @@ export function InternshipInfo() {
     <div className={styles.container}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className={styles.subTitle}>Dados do aluno</p>
-        <Input
-          name="student.name"
-          register={register('student.name')}
-          title="Nome"
-          placeholder="Nome"
-          error={errors.student?.name}
-        />
-        <Input
-          name="student.registration"
-          register={register('student.registration')}
-          title="Matricula - (RA)"
-          placeholder="Matricula - (RA)"
-          style={{ textTransform: 'uppercase' }}
-          mask="RA"
-          error={errors.student?.registration}
-        />
-        <Input
-          name="student.course"
-          register={register('student.course')}
-          title="Curso"
-          placeholder="Curso"
-          error={errors.student?.course}
-        />
-        <Input
-          name="student.semester"
-          register={register('student.semester')}
-          title="Semestre"
-          placeholder="Semestre"
-          maxLength={2}
-          error={errors.student?.semester}
-        />
-        <Input
-          name="student.office"
-          register={register('student.office')}
-          title="Cargo/Função"
-          placeholder="Cargo do aluno na empresa"
-          error={errors.student?.office}
-        />
-        <Input
-          name="student.address.zipcode"
-          register={register('student.address.zipcode')}
-          title="CEP"
-          placeholder="CEP"
-          mask="zipcode"
-          error={errors.student?.address?.zipcode}
-          onChangeCapture={event =>
-            setStudentZipcode(event.currentTarget.value)
-          }
-        />
-        <Input
-          name="student.address.street"
-          register={register('student.address.street')}
-          title="Endereço"
-          placeholder="Endereço"
-          error={errors.student?.address?.street}
-        />
-        <Input
-          name="student.address.streetNumber"
-          register={register('student.address.streetNumber')}
-          title="Numero"
-          placeholder="Numero"
-          maxLength={5}
-          error={errors.student?.address?.streetNumber}
-        />
-        <Input
-          name="student.address.complement"
-          register={register('student.address.complement')}
-          title="Complemento"
-          placeholder="Complemento"
-          error={errors.student?.address?.complement}
-        />
-        <Input
-          name="student.address.city"
-          register={register('student.address.city')}
-          title="Cidade"
-          placeholder="Cidade"
-          error={errors.student?.address?.city}
-        />
-        <Input
-          name="student.address.state"
-          register={register('student.address.state')}
-          title="Estado"
-          placeholder="Estado"
-          error={errors.student?.address?.state}
-          maxLength={2}
-        />
+        <section className={styles.sectionInfo}>
+          <Input
+            name="student.name"
+            register={register('student.name')}
+            title="Nome"
+            placeholder="Nome"
+            error={errors.student?.name}
+          />
+          <Input
+            name="student.registration"
+            register={register('student.registration')}
+            title="Matricula - (RA)"
+            placeholder="Matricula - (RA)"
+            style={{ textTransform: 'uppercase' }}
+            mask="RA"
+            error={errors.student?.registration}
+          />
+          <Input
+            name="student.course"
+            register={register('student.course')}
+            title="Curso"
+            placeholder="Curso"
+            error={errors.student?.course}
+          />
+
+          <Input
+            name="student.semester"
+            register={register('student.semester')}
+            title="Semestre"
+            placeholder="Semestre"
+            maxLength={2}
+            error={errors.student?.semester}
+          />
+          <Input
+            name="student.office"
+            register={register('student.office')}
+            title="Cargo/Função"
+            placeholder="Cargo do aluno na empresa"
+            error={errors.student?.office}
+          />
+          <Input
+            name="student.address.zipcode"
+            register={register('student.address.zipcode')}
+            title="CEP"
+            placeholder="CEP"
+            mask="zipcode"
+            error={errors.student?.address?.zipcode}
+            onChangeCapture={event =>
+              setStudentZipcode(event.currentTarget.value)
+            }
+          />
+          <Input
+            name="student.address.street"
+            register={register('student.address.street')}
+            title="Endereço"
+            placeholder="Endereço"
+            error={errors.student?.address?.street}
+          />
+          <Input
+            name="student.address.streetNumber"
+            register={register('student.address.streetNumber')}
+            title="Numero"
+            placeholder="Numero"
+            maxLength={5}
+            error={errors.student?.address?.streetNumber}
+          />
+          <Input
+            name="student.address.complement"
+            register={register('student.address.complement')}
+            title="Complemento"
+            placeholder="Complemento"
+            error={errors.student?.address?.complement}
+          />
+          <Input
+            name="student.address.city"
+            register={register('student.address.city')}
+            title="Cidade"
+            placeholder="Cidade"
+            error={errors.student?.address?.city}
+          />
+          <Input
+            name="student.address.state"
+            register={register('student.address.state')}
+            title="Estado"
+            placeholder="Estado"
+            error={errors.student?.address?.state}
+            maxLength={2}
+          />
+        </section>
         <div className={styles.divider} />
         <p className={styles.subTitle}>Dados da empresa</p>
-        <Input
-          name="cnpj"
-          register={register('company.cnpj')}
-          title="CNPJ"
-          placeholder="CNPJ"
-          error={errors.company?.cnpj}
-          mask="CNPJ"
-          onChange={event => setCompanyCNPJ(event.target.value)}
-        />
-        <Input
-          name="corporateName"
-          register={register('company.corporateName')}
-          title="Nome da empresa"
-          placeholder="Nome da empresa"
-          error={errors.company?.corporateName}
-        />
-        <Input
-          name="fantasyName"
-          register={register('company.fantasyName')}
-          title="Nome fantasia"
-          placeholder="Nome fantasia"
-          error={errors.company?.fantasyName}
-        />
-        <Input
-          name="description"
-          register={register('company.description')}
-          title="Atividade da Unidade Concedente"
-          placeholder="Atividade da Unidade Concedente"
-          error={errors.company?.description}
-        />
-        <Input
-          name="phone1"
-          register={register('company.phone1')}
-          title="Telefone"
-          placeholder="Telefone"
-          error={errors.company?.phone1}
-          mask="phone"
-        />
-        <Input
-          name="phone2"
-          register={register('company.phone2')}
-          title="Celular"
-          placeholder="Celular"
-          error={errors.company?.phone2}
-        />
-        <Input
-          name="company.address.zipcode"
-          register={register('company.address.zipcode')}
-          title="CEP"
-          placeholder="CEP"
-          error={errors.company?.address?.zipcode}
-          mask="zipcode"
-        />
-        <Input
-          name="company.address.street"
-          register={register('company.address.street')}
-          title="Endereço"
-          placeholder="Endereço"
-          error={errors.company?.address?.street}
-        />
-        <Input
-          name="company.address.streetNumber"
-          register={register('company.address.streetNumber')}
-          title="Numero"
-          placeholder="Numero"
-          error={errors.company?.address?.streetNumber}
-          maxLength={5}
-          type="number"
-        />
-        <Input
-          name="company.address.complement"
-          register={register('company.address.complement')}
-          title="Complemento"
-          placeholder="Complemento"
-          error={errors.company?.address?.complement}
-        />
-        <Input
-          name="company.address.city"
-          register={register('company.address.city')}
-          title="Cidade"
-          placeholder="Cidade"
-          error={errors.company?.address?.city}
-        />
-        <Input
-          name="company.address.state"
-          register={register('company.address.state')}
-          title="Estado"
-          placeholder="Estado"
-          error={errors.company?.address?.state}
-        />
-
+        <section className={styles.sectionInfo}>
+          <Input
+            name="cnpj"
+            register={register('company.cnpj')}
+            title="CNPJ"
+            placeholder="CNPJ"
+            error={errors.company?.cnpj}
+            mask="CNPJ"
+            onChange={event => setCompanyCNPJ(event.target.value)}
+          />
+          <Input
+            name="corporateName"
+            register={register('company.corporateName')}
+            title="Nome da empresa"
+            placeholder="Nome da empresa"
+            error={errors.company?.corporateName}
+          />
+          <Input
+            name="fantasyName"
+            register={register('company.fantasyName')}
+            title="Nome fantasia"
+            placeholder="Nome fantasia"
+            error={errors.company?.fantasyName}
+          />
+          <Input
+            name="description"
+            register={register('company.description')}
+            title="Atividade da Unidade Concedente"
+            placeholder="Atividade da Unidade Concedente"
+            error={errors.company?.description}
+          />
+          <Input
+            name="phone1"
+            register={register('company.phone1')}
+            title="Telefone"
+            placeholder="Telefone"
+            error={errors.company?.phone1}
+            mask="phone"
+          />
+          <Input
+            name="phone2"
+            register={register('company.phone2')}
+            title="Celular"
+            placeholder="Celular"
+            error={errors.company?.phone2}
+          />
+          <Input
+            name="company.address.zipcode"
+            register={register('company.address.zipcode')}
+            title="CEP"
+            placeholder="CEP"
+            error={errors.company?.address?.zipcode}
+            mask="zipcode"
+          />
+          <Input
+            name="company.address.street"
+            register={register('company.address.street')}
+            title="Endereço"
+            placeholder="Endereço"
+            error={errors.company?.address?.street}
+          />
+          <Input
+            name="company.address.streetNumber"
+            register={register('company.address.streetNumber')}
+            title="Numero"
+            placeholder="Numero"
+            error={errors.company?.address?.streetNumber}
+            maxLength={5}
+            type="number"
+          />
+          <Input
+            name="company.address.complement"
+            register={register('company.address.complement')}
+            title="Complemento"
+            placeholder="Complemento"
+            error={errors.company?.address?.complement}
+          />
+          <Input
+            name="company.address.city"
+            register={register('company.address.city')}
+            title="Cidade"
+            placeholder="Cidade"
+            error={errors.company?.address?.city}
+          />
+          <Input
+            name="company.address.state"
+            register={register('company.address.state')}
+            title="Estado"
+            placeholder="Estado"
+            error={errors.company?.address?.state}
+          />
+        </section>
         <div className={styles.divider} />
 
         <p className={styles.subTitle}>Dados do estágio</p>
-
-        <Input
-          name="internship.nameAdvisor"
-          register={register('internship.nameAdvisor')}
-          title="Nome do orientador"
-          placeholder="Nome do orientador"
-          error={errors.internship?.nameAdvisor}
-        />
-        <Input
-          name="internship.rgAdvisor"
-          register={register('internship.rgAdvisor')}
-          title="RG do orientador"
-          placeholder="RG do orientador"
-          error={errors.internship?.rgAdvisor}
-          mask="RG"
-          maxLength={9}
-        />
-        <Input
-          name="internship.startDate"
-          register={register('internship.startDate')}
-          title="Data de Inicio"
-          placeholder="Data de Inicio"
-          error={errors.internship?.startDate}
-          mask="date"
-        />
-        <Input
-          name="internship.endDate"
-          register={register('internship.endDate')}
-          title="Data de Termino"
-          placeholder="Data de Termino"
-          error={errors.internship?.endDate}
-          mask="date"
-          inputMode="numeric"
-        />
-        <Input
-          name="internship.totalHours"
-          register={register('internship.totalHours')}
-          title="Total de horas"
-          placeholder="Total de horas"
-          error={errors.internship?.totalHours}
-        />
-
+        <section className={styles.sectionInfo}>
+          <Input
+            name="internship.nameAdvisor"
+            register={register('internship.nameAdvisor')}
+            title="Nome do orientador"
+            placeholder="Nome do orientador"
+            error={errors.internship?.nameAdvisor}
+          />
+          <Input
+            name="internship.rgAdvisor"
+            register={register('internship.rgAdvisor')}
+            title="RG do orientador"
+            placeholder="RG do orientador"
+            error={errors.internship?.rgAdvisor}
+            mask="RG"
+            maxLength={9}
+          />
+          <Input
+            name="internship.startDate"
+            register={register('internship.startDate')}
+            title="Data de Inicio"
+            placeholder="Data de Inicio"
+            error={errors.internship?.startDate}
+            mask="date"
+          />
+          <Input
+            name="internship.endDate"
+            register={register('internship.endDate')}
+            title="Data de Termino"
+            placeholder="Data de Termino"
+            error={errors.internship?.endDate}
+            mask="date"
+            inputMode="numeric"
+          />
+          <Input
+            name="internship.totalHours"
+            register={register('internship.totalHours')}
+            title="Total de horas"
+            placeholder="Total de horas"
+            error={errors.internship?.totalHours}
+          />
+        </section>
         <div className={styles.divider} />
         <Button title="Gerar anexos" type="submit" />
       </form>

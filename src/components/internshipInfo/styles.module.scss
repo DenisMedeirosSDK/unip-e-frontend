@@ -32,3 +32,11 @@
   font-size: 24px;
   margin-bottom: 30px;
 }
+
+@media (min-width: 900px) {
+  .sectionInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 40px;
+  }
+}

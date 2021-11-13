@@ -21,3 +21,12 @@
   text-align: justify;
   margin-bottom: 10px;
 }
+
+@media (min-width: 880px) {
+  .sectionInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0 40px;
+  }
+}
