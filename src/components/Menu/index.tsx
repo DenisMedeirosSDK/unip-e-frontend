@@ -13,6 +13,10 @@ export function Menu() {
       <Link href="/estagio/performace">
         <a>Performace do aluno</a>
       </Link>
+
+      <Link href="/estagio/relatorio">
+        <a>Relatório do aluno</a>
+      </Link>
     </nav>
   );
 }
