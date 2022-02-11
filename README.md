@@ -53,7 +53,7 @@ Abra em seu navegador [http://localhost:3000](http://localhost:3000), para ver o
 
 **Passo 02**
 
-Se você é programador/estudante e quer contribuir com código:
+Se você é programador/estudante de programação e quer contribuir com código:
 
 Faça um fork do projeto
 Faça um issue detalhada
