@@ -11,7 +11,7 @@ Queremos que esse projeto tenha a capacidade de facilitar e documentar todas as 
 Alguns de nossos serviços:
 
 - [x] Documentação de estágio
-  - Anexo 01 & 02
+  - Anexo 01 & 02 & 03
 
 ## Guia de inicialização
 
@@ -53,14 +53,11 @@ Abra em seu navegador [http://localhost:3000](http://localhost:3000), para ver o
 
 **Passo 02**
 
-Se você é programador e quer contribuir com código:
+Se você é programador/estudante e quer contribuir com código:
 
-- Faça um fork do repositorio
-- Complete o guia de inicialização - _"Agora clone o projeto do seu repositorio"_
-- Crie uma _branch_ com o nome da funcionaliadde: `git checkout -b minha-funcionalidade`
-- Faça _commit_ das suas alterações : `git commit -m 'feat: Minha nova funcionalidade'`
-- Faça _push_ para a sua _branch_: `git push origin minha-funcionalidade`
+Faça um fork do projeto
+Faça um issue detalhada
+Faça um pull request para esse repositorio
 
----
 
 Linkedin - [Denis Medeiros](https://www.linkedin.com/in/denis-medeiros/) - Github - [DenisMedeirosSDK](https://github.com/DenisMedeirosSDK)
